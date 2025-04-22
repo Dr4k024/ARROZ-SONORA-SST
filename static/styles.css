@@ -1,0 +1,248 @@
+/* Tipo de fuente de letra: Roboto */
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.ttf') format('truetype'); /* Asegúrate de que la ruta sea correcta */
+    src: url("fonts/Roboto-Regular.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #1D2C96;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    background: white;
+    width: 90%; /* Ocupa más espacio en móviles */
+    max-width: 850px; /* Máximo en pantallas grandes */
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Títulos */
+h2 {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* Formularios */
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+    padding-bottom: 3px;
+}
+
+/* Inputs y selects */
+input:not([type="radio"]), select {
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    border-color: #767676;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Botón */
+button {
+    background: #28a745;
+    color: white;
+    padding: 12px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 18px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Select con diseño personalizado */
+.select-container {
+    position: relative;
+    width: 100%;
+}
+
+.select-container::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 14px;
+    color: #db3434;
+}
+
+/* Radio buttons */
+.radio-container {
+    background: white;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+}
+
+td {
+    padding: 5px;
+    text-align: left;
+}
+
+.pregunta_5 {
+    width: 50px;
+    height: 30px;
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+}
+
+.fila {
+    display: flex;
+    align-items: center;
+}
+
+/* Diseño de imágenes */
+img {
+    /* width: 80px; */
+    height: auto;
+    margin: 10px 0;
+}
+
+.LOGO {
+    width: 60%;
+}
+
+/* Grid de imágenes */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+}
+
+.norma img {
+    width: 100%;
+    max-width: 100px;
+    /* width: 50%; */
+}
+
+/* RESPONSIVE DESIGN */
+
+/* ✅ Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .container {
+        /* width: 95%; */
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    input, select, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .norma img {
+        max-width: 80px;
+    }
+
+    img {
+        width: 60px;
+    }
+}
+
+/* ✅ Ajustes para pantallas grandes (computadoras) */
+@media (min-width: 1024px) {
+    .container {
+        width: 60%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .norma img {
+        max-width: 120px;
+    }
+}
+
+.preguntas {
+    text-align: justify;
+}
+
+#Encabezado {
+    display: flex;
+    align-items: center;
+    background-color: #1D2C96;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+
+}
+
+.titulo {
+    flex: 1;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+.imagen {
+    flex: 1;
+}
+.imagen img {
+    /* max-width: 100%; */
+    height: auto;
+}
+
+#FINAL {
+    display: flex;
+    flex-direction: row;
+}
+
+#btnRegresar {
+    margin-right: 10px;
+}
+
+#btnFinalizar {
+    margin-left: 10px;
+}
+
+/* Estilo para resaltar la imagen seleccionada */
+.seleccionada {
+    border: 3px solid #1D2C96;
+    border-radius: 5px;
+}
+
+.seccion {
+    transition: opacity 0.5s ease-in-out;
+}

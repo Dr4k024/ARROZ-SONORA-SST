@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='Logo.ico') }}?v=2">
+    <!-- <script defer src="./script.js"></script> -->
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form method="POST" action="/generar_pdf"> <!-- Asegúrate de tener esta acción correcta -->
+            <div id="seccion1">
+                <div id="Encabezado">
+                    <div class="titulo">Evaluación Inducción SST</div>
+                    <div class="imagen">
+                        <img class="LOGO" src="../static/LOGO-SONORA-LINEA-PREMIUM-Azul.png"
+                            alt="Descripción de la imagen">
+                    </div>
+                </div>
+
+                <div class="inputGroup">
+                    <label><b>Nombre completo</b></label>
+                    <input name="Nombre" type="text" required autocomplete="off" placeholder="Ingrese su nombre">
+                </div>
+
+                <div class="inputGroup">
+                    <label><b>Identificación</b></label>
+                    <input name="Identificación" type="text" required autocomplete="off"
+                        placeholder="Ingrese su numero de identificación">
+                </div>
+
+                <label><b>Cargo</b></label>
+                <select name="Cargo" required>
+                    <option value="">Seleccione su cargo</option>
+                    <option value="Mantenimiento y jardinería">Mantenimiento y jardinería</option>
+                    <option value="Facturador">Facturador</option>
+                    <option value="Operador máquina de empaque">Operador máquina de empaque</option>
+                    <option value="Analista de calidad">Analista de calidad</option>
+                    <option value="Auxiliar de empaque">Auxiliar de empaque</option>
+                    <option value="Coordinador de trilla">Coordinador de trilla</option>
+                    <option value="Operador de montacargas">Operador de montacargas</option>
+                    <option value="Asistente de compras materia prima">Asistente de compras materia prima</option>
+                    <option value="Supernumerario SST">Supernumerario SST</option>
+                    <option value="Mecánico">Mecánico</option>
+                    <option value="Coordinador de secamiento">Coordinador de secamiento</option>
+                    <option value="Auxiliar cafetería">Auxiliar cafetería</option>
+                    <option value="Vigilante">Vigilante</option>
+                    <option value="Director comercial insumos llanos">Director comercial insumos llanos</option>
+                    <option value="Auxiliar de trilla">Auxiliar de trilla</option>
+                    <option value="Supervisor de vigilancia">Supervisor de vigilancia</option>
+                    <option value="Asistente de contabilidad">Asistente de contabilidad</option>
+                    <option value="Auxiliar de secamiento">Auxiliar de secamiento</option>
+                    <option value="Jefe administrativo aguazul">Jefe administrativo aguazul</option>
+                    <option value="Recepcionista">Recepcionista</option>
+                    <option value="Jefe de costos">Jefe de costos</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Comprador materia prima tolima norte">Comprador materia prima tolima norte</option>
+                    <option value="Mercaderista">Mercaderista</option>
+                    <option value="Coordinador control de calidad">Coordinador control de calidad</option>
+                    <option value="Auxiliar SST">Auxiliar SST</option>
+                    <option value="Supervisor de maquila">Supervisor de maquila</option>
+                    <option value="Auxiliar de compras materia prima">Auxiliar de compras materia prima</option>
+                    <option value="Mensajero">Mensajero</option>
+                    <option value="Asistente administrativo">Asistente administrativo</option>
+                    <option value="Representante técnico comercial senior">Representante técnico comercial senior
+                    </option>
+                    <option value="Coordinador de ventas">Coordinador de ventas</option>
+                    <option value="Asistente administrativo insumos y compras materia prima Villavicencio">Asistente
+                        administrativo insumos y compras materia prima Villavicencio</option>
+                    <option value="Director comercial zona Antioquia">Director comercial zona Antioquia</option>
+                    <option value="Electricista">Electricista</option>
+                    <option value="Gerente general">Gerente general</option>
+                    <option value="Almacenista de insumos agrícolas">Almacenista de insumos agrícolas</option>
+                    <option value="Auxiliar de despachos">Auxiliar de despachos</option>
+                    <option value="Auxiliar de bodega y despachos">Auxiliar de bodega y despachos</option>
+                    <option value="Analista compras de insumos">Analista compras de insumos</option>
+                    <option value="Auxiliar mecánico">Auxiliar mecánico</option>
+                    <option value="Supervisor de campo">Supervisor de campo</option>
+                    <option value="Electrónico">Electrónico</option>
+                    <option value="Jefe de mantenimiento">Jefe de mantenimiento</option>
+                    <option value="Analista de procesos SAP">Analista de procesos SAP</option>
+                    <option value="Gerente operativo planta la maría">Gerente operativo planta la maría</option>
+                    <option value="Aprendiz SENA">Aprendiz SENA</option>
+                    <option value="Representante técnico comercial">Representante técnico comercial</option>
+                    <option value="Gerente administrativo y financiero">Gerente administrativo y financiero</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Gerente nacional de ventas">Gerente nacional de ventas</option>
+                    <option value="Conductor">Conductor</option>
+                    <option value="Jefe de auditoria">Jefe de auditoria</option>
+                    <option value="Coordinador de producción">Coordinador de producción</option>
+                    <option value="Coordinador de despachos">Coordinador de despachos</option>
+                    <option value="Conductor tractomula">Conductor tractomula</option>
+                    <option value="Jefe de seguridad y salud en el trabajo">Jefe de seguridad y salud en el trabajo
+                    </option>
+                    <option value="Jefe de planta u obra Aguazul">Jefe de planta u obra Aguazul</option>
+                    <option value="Almacenista">Almacenista</option>
+                    <option value="Analista SST">Analista SST</option>
+                    <option value="Coordinador comercial">Coordinador comercial</option>
+                    <option value="Director agencia insumos Villavicencio">Director agencia insumos Villavicencio
+                    </option>
+                    <option value="Auxiliar de tesorería">Auxiliar de tesorería</option>
+                    <option value="Auxiliar eléctrico">Auxiliar eléctrico</option>
+                    <option value="Auxiliar de cartera">Auxiliar de cartera</option>
+                    <option value="Auxiliar de recursos humanos">Auxiliar de recursos humanos</option>
+                    <option value="Director agencia insumos Yopal">Director agencia insumos Yopal</option>
+                    <option value="Electromecánico">Electromecánico</option>
+                    <option value="Analista de sistemas">Analista de sistemas</option>
+                    <option value="Supernumerario de producción">Supernumerario de producción</option>
+                    <option value="Operador de bascula">Operador de bascula</option>
+                    <option value="Auxiliar de facturación">Auxiliar de facturación</option>
+                    <option value="Auxiliar de auditoria">Auxiliar de auditoria</option>
+                    <option value="Gerente de mercadeo nacional">Gerente de mercadeo nacional</option>
+                    <option value="Gerente operativo planta Aguazul">Gerente operativo planta Aguazul</option>
+                    <option value="Asistente administrativo insumos tolima">Asistente administrativo insumos tolima
+                    </option>
+                    <option value="Comprador materia prima">Comprador materia prima</option>
+                </select>
+
+
+                <label><b>Pregunta 1</b></label>
+                <label class="labels"><b>¿Describa con sus propias palabras cuál es el objetivo que tiene el área de
+                        Seguridad y Salud en el Trabajo en Agroindustrial Molino Sonora AP S.A.S?</b></label>
+                <div class="radio-container">
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="Pregunta1"
+                                value="Garantizar el cumplimiento exclusivo de las normas laborales del sector industrial."
+                                oninput="verificarSeccion(1)" required>
+                            Garantizar el cumplimiento exclusivo de las normas laborales del sector industrial.
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta1"
+                                value="Promover un entorno laboral seguro y saludable para prevenir accidentes y enfermedades."
+                                oninput="verificarSeccion(1)" required>
+                            Promover un entorno laboral seguro y saludable para prevenir accidentes y enfermedades.
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta1"
+                                value="Aumentar la producción de bienes y servicios en la empresa."
+                                oninput="verificarSeccion(1)" required>
+                            Aumentar la producción de bienes y servicios en la empresa.
+                        </label>
+                    </div>
+                </div>
+
+                <label><b>Pregunta 2</b></label>
+                <label class="labels"><b>¿Qué es un acto inseguro?</b></label>
+                <div class="radio-container">
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="Pregunta2"
+                                value=" ✔"
+                                oninput="verificarSeccion(1)" required>
+                            Situación intrínseca en nuestro ambiente de trabajo que aumenta la posibilidad de algo.
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta2"
+                                value="✔"
+                                oninput="verificarSeccion(1)" required>
+                            Violación u omisión de una norma o procedimiento por parte del trabajador que aumenta las
+                            posibilidades que ocurra un accidente.
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta2"
+                                value="✔"
+                                oninput="verificarSeccion(1)" required>
+                            Es el suceso en el que no hay como resultado una lesión. También se puede denominar como
+                            casi-accidente (situación en la que casi ocurre).
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta2"
+                                value="✔"
+                                oninput="verificarSeccion(1)" required>
+                            Es la contraída como resultado de la exposición a factores de riesgo inherentes a la
+                            actividad laboral o del hogar.
+                        </label>
+                    </div>
+                </div>
+
+                <label><b>Pregunta 3</b></label>
+                <label class="labels"><b>Seleccione un peligro, su consecuencia y una acción para
+                        minimizarlo.</b></label>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="peligro1">Peligro</label><br>
+                            <select id="peligro1" class="peligro" data-row="1" onchange="verificarSeccion(1)">
+                                <option value="">Seleccione un peligro</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="consecuencia1">Consecuencia</label><br>
+                            <select id="consecuencia1" class="consecuencia" onchange="verificarSeccion(1)" disabled>
+                                <option value="">Seleccione una consecuencia</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="accion1">Acción</label><br>
+                            <select id="accion1" class="accion" onchange="verificarSeccion(1)" disabled>
+                                <option value="">Seleccione una acción</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="peligro2">Peligro</label><br>
+                            <select id="peligro2" class="peligro" data-row="2" onchange="verificarSeccion(1)">
+                                <option value="">Seleccione un peligro</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="consecuencia2">Consecuencia</label><br>
+                            <select id="consecuencia2" class="consecuencia" onchange="verificarSeccion(1)" disabled>
+                                <option value="">Seleccione una consecuencia</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="accion2">Acción</label><br>
+                            <select id="accion2" class="accion" onchange="verificarSeccion(1)" disabled>
+                                <option value="">Seleccione una acción</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="peligro3">Peligro</label><br>
+                            <select id="peligro3" class="peligro" data-row="3" onchange="verificarSeccion(1)">
+                                <option value="">Seleccione un peligro</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="consecuencia3">Consecuencia</label><br>
+                            <select id="consecuencia3" class="consecuencia" onchange="verificarSeccion(1)" disabled>
+                                <option value="">Seleccione una consecuencia</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="accion3">Acción</label><br>
+                            <select id="accion3" class="accion" onchange="verificarSeccion(1)" disabled>
+                                <option value="">Seleccione una acción</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <label><b>Pregunta 4</b></label>
+                <label class="labels"><b>¿Qué es un accidente de trabajo?</b></label>
+                <div class="radio-container">
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="Pregunta4" value="✔" oninput="verificarSeccion(1)" required>
+                            Es acciedente de trabajo todo suceso repentino que sobrevenga por causa o con ocasion del
+                            trabajo, y que produzca en el trabajador una lesión organica, una pertubación funcional o
+                            psiquiátrica, una invalidez o la muerte.
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta4" value="✔" oninput="verificarSeccion(1)" required>
+                            Contraída como resultado de la exposición a factores de riesgo diferentes a la actividad
+                            laboral o en el lugar de vivienda.
+                        </label>
+                        <label>
+                            <input type="radio" name="Pregunta4" value="✔" oninput="verificarSeccion(1)" required>
+                            Todo suceso acaecido en el curso del trabajo o en relación con este, que tuvo el potencial
+                            de ser un accidente, en el que hubo personas involucradas sin que sufrieran lesiones o se
+                            presentaran daños a la propiedad y/o pérdida en los procesos.
+                        </label>
+                    </div>
+                </div>
+
+                <label><b>Pregunta 5</b></label>
+                <label class="labels"><b>Ordene de 1 a 6 los pasos para el reporte correcto de Accidente de
+                        trabajo.</b></label>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="fila">
+                                    <select name="orden_accidente" class="pregunta_5" oninput="verificarSeccion(1)">
+                                        <option value="" selected disabled></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    <span>Colaborador se dirige a la oficina de SST</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fila">
+                                    <select name="orden_accidente" class="pregunta_5" oninput="verificarSeccion(1)">
+                                        <option value="" selected disabled></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    <span>El colaborador se desplaza hasta el centro médico</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fila">
+                                    <select name="orden_accidente" class="pregunta_5" oninput="verificarSeccion(1)">
+                                        <option value="" selected disabled></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    <span>Colaborador reporta a su jefe inmediato</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fila">
+                                    <select name="orden_accidente" class="pregunta_5" oninput="verificarSeccion(1)">
+                                        <option value="" selected disabled></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    <span>Se genera el reporte del accidente de trabajo (FURAT)</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="fila">
+                                    <select name="orden_accidente" class="pregunta_5" oninput="verificarSeccion(1)">
+                                        <option value="" selected disabled></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    <span>Colaborador recibe un primer auxilio para revisar herida</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="fila">
+                                    <select name="orden_accidente" class="pregunta_5" oninput="verificarSeccion(1)">
+                                        <option value="" selected disabled></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                    <span>Colaborador realiza la versión libre de lo ocurrido</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <button type="button" id="btnAvanzar" disabled onclick="cambiarSeccion(2)">Avanzar</button>
+            </div>
+
+            <div id="seccion2" style="display: none;">
+                <label><b>Pregunta 6</b></label>
+                <label class="labels"><b>¿Para que sirve el COPASST en la empresa?</b></label>
+                <div class="radio-container">
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="pregunta6" value="✔" oninput="verificarSeccion(2)" required>
+                            Organismo para interponer las quejas de acoso laboral que se presenten en los ambientes de
+                            trabajo.
+                        </label>
+                        <label>
+                            <input type="radio" name="pregunta6" value="✔" oninput="verificarSeccion(2)" required>
+                            Organismo que sirve para medir rendimientos en las actividades diarias en cada una de las
+                            áreas.
+                        </label>
+                        <label>
+                            <input type="radio" name="pregunta6" value="✔" oninput="verificarSeccion(2)" required>
+                            Organismo integrador y puente para divulgar las actividades de seguridad y salud en el
+                            trabajo al interior de la empresa.
+                        </label>
+                    </div>
+                </div>
+
+                <label><b>Pregunta 7</b></label>
+                <label class="labels"><b>Indique 3 ejemplos de condiciones inseguras que se pueden presentar en un
+                        entorno laboral</b></label>
+                <div>
+                    <ol>
+                        <li>
+                            <select class="selector" name="condicion_insegura_1" required
+                                onchange="verificarSeccion(2)">
+                                <option value="">Seleccione una condición insegura</option>
+                                <option value="1">Pisos resbalosos o con derrames</option>
+                                <option value="2">Falta de sillas ergonómicas</option>
+                                <option value="3">Uso obligatorio de uniformes</option>
+                            </select>
+                        </li>
+                        <br>
+                        <li>
+                            <select class="selector" name="condicion_insegura_2" required
+                                onchange="verificarSeccion(2)">
+                                <option value="">Seleccione una condición insegura</option>
+                                <option value="1">Disponibilidad de botiquines de primeros auxilios</option>
+                                <option value="2">Herramientas mal almacenadas</option>
+                                <option value="3">Espacios amplios para circular</option>
+                            </select>
+                        </li>
+                        <br>
+                        <li>
+                            <select class="selector" name="condicion_insegura_3" required
+                                onchange="verificarSeccion(2)">
+                                <option value="">Seleccione una condición insegura</option>
+                                <option value="1">Señalización clara y visible</option>
+                                <option value="2">Superficies de trabajo organizadas</option>
+                                <option value="3">Iluminación insuficiente en áreas de trabajo</option>
+                            </select>
+                        </li>
+                    </ol>
+                </div>
+
+                <label><b>Pregunta 8</b></label>
+                <label class="labels"><b>Seleccione tres Roles y Responsabilidades que usted como trabajador debe
+                        cumplir con el área de SST</b></label>
+                <div>
+                    <ol>
+                        <li>
+                            <select class="selector" name="Pregunta8_1" required>
+                                <option value="">Seleccione un rol o responsabilidad</option>
+                                <option value="1">Informar sobre riesgos detectados en el lugar de trabajo</option>
+                                <option value="2">Crear el manual de procedimientos de la empresa</option>
+                                <option value="3">Supervisar a otros empleados en sus tareas diarias</option>
+                            </select>
+                        </li>
+                        <br>
+                        <li>
+                            <select class="selector" name="Pregunta8_2" required>
+                                <option value="">Seleccione un rol o responsabilidad</option>
+                                <option value="1">Realizar las inspecciones técnicas de las máquinas</option>
+                                <option value="2">Participar en las capacitaciones de seguridad</option>
+                                <option value="3">Diseñar las políticas de SST de la empresa</option>
+                            </select>
+                        </li>
+                        <br>
+                        <li>
+                            <select class="selector" name="Pregunta8_3" required>
+                                <option value="">Seleccione un rol o responsabilidad</option>
+                                <option value="1">Aprobar presupuestos para el área de SST</option>
+                                <option value="2">Dirigir reuniones del comité de SST</option>
+                                <option value="3">Usar adecuadamente los equipos de protección personal (EPP)</option>
+                            </select>
+                        </li>
+                    </ol>
+                </div>
+
+                <label><b>Pregunta 9</b></label>
+                <label class="labels"><b>Seleccione las normas de seguridad de obligatorio cumplimiento en
+                        Agroindustrial Molino Sonora.</b></label>
+                <div class="grid">
+                    <div class="norma"><img src="../static/prohibido-correr-en-las-zanjas.png" alt="Norma 1"></div>
+                    <div class="norma"><img
+                            src="../static/utilice-fundas-o-estuches-para-las-herramientas-cortopunzantes.png"
+                            alt="Norma 2"></div>
+                    <div class="norma"><img src="../static/prohibido-el-uso-de-audifonos.png" alt="Norma 3"></div>
+                    <div class="norma"><img
+                            src="../static/utilice-correctamente-los-elementos-de-proteccion-personal.png"
+                            alt="Norma 4"></div>
+                    <div class="norma"><img src="../static/es-permitido-correr-y-saltar.png" alt="Norma 5"></div>
+                    <div class="norma"><img src="../static/mantega-el-cabello-completamente-recogido.png" alt="Norma 6">
+                    </div>
+                    <div class="norma"><img src="../static/prohibido-alimentar-a-los-animales.png" alt="Norma 7"></div>
+                    <div class="norma"><img
+                            src="../static/prohibido-entrar-a-la-empresa-bajo-los-efectos-del-alcohol-o-sustancias-psicoactivas.png"
+                            alt="Norma 8"></div>
+                    <div class="norma"><img src="../static/prohibido-reir-en-el-trabajo.png" alt="Norma 9"></div>
+                    <div class="norma"><img src="../static/utilice-la-dotacion-completa-entregada-por-la-empresa.png"
+                            alt="Norma 10"></div>
+                    <div class="norma"><img src="../static/prohibido-el-uso-de-celulares.png" alt="Norma 11"></div>
+                    <div class="norma"><img src="../static/mantenga-en-completo-orden-y-aseo-su-puesto-de-trabajo.png"
+                            alt="Norma 12"></div>
+                </div>
+
+                <label><b>Pregunta 10</b></label>
+                <label class="labels"><b>¿En Agroindustrial Molino Sonora AP S.A.S. está prohibido realizar tareas no
+                        asignadas a su cargo, porque esto puede exponerlo a riesgos que no han sido evaluados o
+                        controlados y que pueden generar daño a su integridad?</b></label>
+                <div class="radio-container">
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="pregunta10" value="✔" oninput="verificarSeccion(2)"
+                                required>
+                            Sí puedo realizarlo siempre y cuando nadie se entere.
+                        </label>
+                        <label>
+                            <input type="radio" name="pregunta10" value="✔" oninput="verificarSeccion(2)"
+                                required>
+                            Sí está prohibido porque me expongo a riesgos no controlados que pueden afectar mi salud o
+                            integridad.
+                        </label>
+                        <label>
+                            <input type="radio" name="pregunta10" value="✔" oninput="verificarSeccion(2)"
+                                required>
+                            No está prohibido, no hay riesgo al hacerlo.
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div id="FINAL">
+                    <button type="button" onclick="cambiarSeccion(1)" id="btnRegresar">Regresar</button>
+                    <button type="button" onclick="finalizarEvaluacion()" id="btnFinalizar">Finalizar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

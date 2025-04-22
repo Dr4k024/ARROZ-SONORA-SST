@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación Completada</title>
+</head>
+<body>
+    <h2>✅ ¡Evaluación finalizada con éxito!</h2>
+    <p>Tu PDF ha sido generado correctamente.</p>
+
+    <!-- Ver el PDF en el navegador -->
+    <a href="{{ url_for('ver_pdf', filename=pdf_file) }}" target="_blank">📄 Ver PDF</a><br><br>
+
+    <!-- Descargar el PDF -->
+    <a href="{{ url_for('descargar_pdf', filename=pdf_file) }}">⬇️ Descargar PDF</a><br><br>
+
+    <!-- Volver al inicio -->
+    <a href="{{ url_for('index') }}">🏠 Volver al inicio</a>
+</body>
+</html>
