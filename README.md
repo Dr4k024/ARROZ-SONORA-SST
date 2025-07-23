@@ -1,3 +1,5 @@
+"C\Users\Jesus\AppData\Local\Programs\Python\Python313\python.exe" -m venv ven
+
 venv\Scripts\activate
 
 pip install flask
